@@ -1,7 +1,13 @@
 const http = require("http");
 
 const server = http.createServer((request, response) => {
-    console.log(request);
+    console.log(request.url, request.method);
+
+    // set header content type
+    response.setHeader("Content-Type", "text/html"); // first set header  type can vary: 'text/plain' or 'text/html' for example
+    response.write("<p>Hi there. This is a response.<p>"); // write the response to be sent back to browser
+    response.write("<p>Hello again.<p>"); // write the response to be sent back to browser
+    response.end(); // end the response and send back
 });
 
 // Need to listen on a port #
