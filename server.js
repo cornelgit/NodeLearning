@@ -14,8 +14,22 @@ const server = http.createServer((request, response) => {
     // set header content type
     response.setHeader("Content-Type", "text/html");
 
+    // determine view to send back based on requested url
+    let path = "./views/";
+    switch (request.url) {
+        case "/":
+            path += "index.html";
+            break;
+        case "/about":
+            path += "about.html";
+            break;
+        default:
+            path += "404.html";
+            break;
+    }
+
     // send an HTML file
-    fs.readFile("./views/index.html", (error, data) => {
+    fs.readFile(path, (error, data) => {
         if (error) {
             console.log(error);
             response.end();
