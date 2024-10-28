@@ -2,7 +2,7 @@
     "name": "node-learning",
     "version": "1.0.0",
     "description": "",
-    "main": "files.js",
+    "main": "server.js",
     "directories": {
         "doc": "docs"
     },
