@@ -7,9 +7,11 @@ const app = express();
 app.listen(3000);
 
 app.get("/", (req, res) => {
-    res.send("<p>home page</p>");
+    //res.send("<p>home page</p>");
+    res.sendFile("./views/index.html", { root: __dirname }); // by default it looks for an absolute path - pc path // can also use path module
 });
 
 app.get("/about", (req, res) => {
-    res.send("<p>about page</p>");
+    //res.send("<p>about page</p>");
+    res.sendFile("./views/about.html", { root: __dirname }); // by default it looks for an absolute path - pc path // can also use path module
 });
