@@ -15,3 +15,10 @@ app.get("/about", (req, res) => {
     //res.send("<p>about page</p>");
     res.sendFile("./views/about.html", { root: __dirname }); // by default it looks for an absolute path - pc path // can also use path module
 });
+
+// redirects - create another get handlers as starting place
+app.get("/about-us", (req, res) => {
+    res.redirect("/about");
+});
+
+// 404 page
