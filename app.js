@@ -21,4 +21,8 @@ app.get("/about-us", (req, res) => {
     res.redirect("/about");
 });
 
-// 404 page
+// this fires for every request up to here - must be at the bottom
+// 404 page - use use() method - to fire middleware - top down this is the last match in thie file
+app.use((req, res) => {
+    res.sendFile("./views/404.html", { root: __dirname });
+});
