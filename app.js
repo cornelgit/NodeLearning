@@ -9,6 +9,8 @@ app.set("view engine", "ejs");
 // listen for requests
 app.listen(3000);
 
+// NOTE: after express run this function, it doesn't know what to do next or how to move on to next line
+// which makes browser hang while waiting
 app.use((req, res) => {
     console.log("New Request Made:");
     console.log("Host:", req.hostname);
