@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 
 // express app
 const app = express();
@@ -9,20 +10,23 @@ app.set("view engine", "ejs");
 // listen for requests
 app.listen(3000);
 
+// use morgan middleware
+app.use(morgan("dev"));
+
 // NOTE: after express run this function, it doesn't know what to do next or how to move on to next line
 // which makes browser hang while waiting
-app.use((req, res, next) => {
-    console.log("New Request Made:");
-    console.log("Host:", req.hostname);
-    console.log("Path:", req.path);
-    console.log("Method:", req.method);
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log("New Request Made:");
+//     console.log("Host:", req.hostname);
+//     console.log("Path:", req.path);
+//     console.log("Method:", req.method);
+//     next();
+// });
 
-app.use((req, res, next) => {
-    console.log("In the next middleware");
-    next();
-});
+// app.use((req, res, next) => {
+//     console.log("In the next middleware");
+//     next();
+// });
 
 app.get("/", (req, res) => {
     //res.send("<p>home page</p>");
