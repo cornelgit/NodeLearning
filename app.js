@@ -11,7 +11,7 @@ app.set("view engine", "ejs");
 app.listen(3000);
 
 // use morgan middleware
-app.use(morgan("dev"));
+app.use(morgan("dev")); // can use others like tiny or dev
 
 // NOTE: after express run this function, it doesn't know what to do next or how to move on to next line
 // which makes browser hang while waiting
@@ -46,5 +46,5 @@ app.get("/about-us", (req, res) => {
 // this fires for every type of request (including post) top to bottom until we send a reponse or close program/browser- should be at the bottom
 // 404 page - use use() method - to fire middleware - top down this is the last match in thie file
 app.use((req, res) => {
-    res.statusCode(404).sendFile("./views/404.html", { root: __dirname }); //we have to manually set a 4404 error, the html filename isn't a way to tell express
+    res.status(404).sendFile("./views/404.html", { root: __dirname }); //we have to manually set a 4404 error, the html filename isn't a way to tell express
 });
