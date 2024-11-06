@@ -10,7 +10,8 @@ app.set("view engine", "ejs");
 // listen for requests
 app.listen(3000);
 
-// use morgan middleware
+// use morgan middleware & static file (css, images, etc)
+app.use(express.static("public"));
 app.use(morgan("dev")); // can use others like tiny or dev
 
 // NOTE: after express run this function, it doesn't know what to do next or how to move on to next line
